@@ -1,0 +1,17 @@
+replicaCount: 2
+
+image:
+  repository: michaelklepcha43/my-repository
+  tag: v1
+  #Kubernetes загрузит образ только в том случае, если его не найдет на узле
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+  targetPort: 8080
+  nodePort: 30080
+
+#Helm и Kubernetes будут использовать значения 
+#по умолчанию для ресурсов контейнера.
+resources: {}
